@@ -70,9 +70,10 @@ func TestFunction_ProviderDefinedFunctionWithoutConfigure(t *testing.T) {
 		t.Errorf("unexpected stderr output:\n%s", stderr)
 	}
 
-	_, stderr, err = tf.Run("plan", "-out=fnplan")
+	out, stderr, err := tf.Run("plan", "-out=fnplan")
 	if err != nil {
 		t.Errorf("unexpected error: %s", err)
+		t.Logf("stdout: %s", out)
 	}
 	if stderr != "" {
 		t.Fatalf("unexpected stderr output:\n%s", stderr)
