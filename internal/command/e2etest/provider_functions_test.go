@@ -89,7 +89,7 @@ func TestFunction_ProviderDefinedFunctionWithoutConfigure(t *testing.T) {
 	}
 
 	for _, out := range plan.Changes.Outputs {
-		if !strings.Contains(string(out.After), "arn:aws:s3:::bucket-prod") {
+		if !strings.Contains(string(out.After), "us-central1") {
 			t.Fatalf("unexpected plan output: %s", string(out.After))
 		}
 	}
