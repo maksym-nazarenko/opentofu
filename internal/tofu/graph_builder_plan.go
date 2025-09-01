@@ -220,7 +220,7 @@ func (b *PlanGraphBuilder) Steps() []GraphTransformer {
 		// Replace providers that have no config or dependencies to
 		// NodeEvalableProvider. This allows using provider-defined functions
 		// even when the provider isn't configured.
-		// &ProviderUnconfiguredTransformer{},
+		&ProviderUnconfiguredTransformer{},
 
 		// After schema transformer, we can add function references
 		&ProviderFunctionTransformer{Config: b.Config, ProviderFunctionTracker: b.ProviderFunctionTracker},
